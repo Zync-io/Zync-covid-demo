@@ -10,15 +10,15 @@ interface ContactPageGroupProps {
 
 export const ContactPageGroup = ({ groups }: ContactPageGroupProps) => {
   return (
-    <Box as="section" flexBasis="50%">
+    <Box as="section" flexBasis="half">
       {groups.map(({ id, title, items }) => (
-        <div key={id}>
+        <div key={id} className="group-container">
           <Heading marginBottom={space[3]} level={2}>
             {title}
           </Heading>
 
-          {items.map((item, index) => (
-            <ContactPageGroupItem key={item.id} item={item} index={index} groupItemsLength={items.length} />
+          {items.map((first, second) => (
+            <ContactPageGroupItem key={first.id} item={first} index={second} groupItemsLength={items.length} />
           ))}
         </div>
       ))}
